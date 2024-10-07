@@ -1,0 +1,6 @@
+# The Darwin linker doesn't allow undefined symbol by default
+# Building cdylib as plugin, failure on mac with missing host symbols, works on linux
+# https://users.rust-lang.org/t/building-cdylib-as-plugin-failure-on-mac-with-missing-host-symbols-works-on-linux/28297
+[target.'cfg(target_os = "macos")']
+rustflags = ["-C", "link-args=-Wl,-undefined,dynamic_lookup"]
+
