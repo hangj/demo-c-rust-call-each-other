@@ -4,3 +4,4 @@ c_lib.so: *.c
 
 clean: c_lib.so
 	rm $^
+	rm ../$^
